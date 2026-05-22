@@ -1,0 +1,229 @@
+:root {
+  --bg: #f0f1f3;
+  --surface: #fff;
+  --text: #18181b;
+  --muted: #71717a;
+  --border: #dfe1e6;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --radius: 12px;
+  --radius-btn: 10px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 12px rgba(16, 24, 40, 0.04);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.page-desc {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.link-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent);
+
+    .back-icon {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  }
+}
+
+.back-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: #a1a1aa;
+  flex-shrink: 0;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    margin-left: 2px;
+    border-left: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+  }
+}
+
+.initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eef2ff;
+  color: #4338ca;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.ant-btn {
+  border-radius: var(--radius-btn) !important;
+  font-weight: 500;
+}
+
+.ant-btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+
+  &:hover,
+  &:focus {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+  }
+}
+
+.ant-btn-default.btn-muted {
+  background: #f4f4f5;
+  border-color: var(--border);
+  color: var(--text);
+
+  &:hover {
+    background: #e4e4e7;
+    border-color: #d4d4d8;
+    color: var(--text);
+  }
+}
+
+.ant-btn-default.btn-danger-soft {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+
+  &:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #b91c1c;
+  }
+}
+
+.ant-input {
+  border-radius: var(--radius-btn) !important;
+}
+
+.ant-pagination-item,
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  border-radius: var(--radius-btn) !important;
+}
+
+.ant-pagination-item-active {
+  border-color: var(--accent);
+
+  a {
+    color: var(--accent);
+  }
+}
+
+.ant-popover .ant-popover-inner {
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.ant-popconfirm .ant-popconfirm-inner-content {
+  min-width: 200px;
+}
+
+.ant-popconfirm .ant-popconfirm-message {
+  color: var(--text);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.ant-popover-buttons,
+.ant-popconfirm .ant-popconfirm-buttons {
+  margin-top: 12px;
+  text-align: right;
+
+  .ant-btn {
+    background: #f4f4f5 !important;
+    border-color: var(--border) !important;
+    color: var(--text) !important;
+    box-shadow: none !important;
+    font-weight: 500;
+
+    &:hover,
+    &:focus {
+      background: #e4e4e7 !important;
+      border-color: #d4d4d8 !important;
+      color: var(--text) !important;
+    }
+  }
+
+  .ant-btn + .ant-btn {
+    margin-left: 8px;
+  }
+}
+
+.ant-message .ant-message-notice-content {
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 10px 16px;
+  color: var(--text);
+}
+
+.ant-message-notice-success .anticon {
+  color: #16a34a;
+}
+
+.ant-message-notice-error .anticon {
+  color: #dc2626;
+}

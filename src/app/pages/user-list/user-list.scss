@@ -1,0 +1,102 @@
+.toolbar {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+
+  input {
+    max-width: 340px;
+  }
+}
+
+.empty {
+  padding: 40px 24px;
+}
+
+.table-wrap {
+  padding: 8px 16px 20px;
+}
+
+.name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.name {
+  display: block;
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.username {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.cell-muted {
+  color: var(--muted);
+}
+
+.row-actions {
+  text-align: right;
+  vertical-align: middle !important;
+}
+
+.row-actions__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+:host ::ng-deep .row-actions .btn-action.ant-btn-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4px 12px !important;
+  height: 30px !important;
+  min-height: 30px;
+  max-height: 30px;
+  line-height: 20px !important;
+  font-size: 13px;
+}
+
+.pager-panel {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+:host ::ng-deep .ant-table-thead > tr > th {
+  background: #f8f9fb;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 14px 16px !important;
+}
+
+:host ::ng-deep .ant-table-tbody > tr > td {
+  padding: 14px 16px !important;
+  vertical-align: middle !important;
+  border-bottom: 1px solid var(--border);
+}
+
+:host ::ng-deep .ant-table-tbody > tr:last-child > td {
+  border-bottom: none;
+}
+
+:host ::ng-deep .ant-table-tbody > tr:hover > td {
+  background: #f8f9fb;
+}
+
+:host ::ng-deep .ant-table {
+  background: transparent;
+}

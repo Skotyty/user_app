@@ -1,0 +1,98 @@
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Пользователи</h1>
+    <p class="page-desc">Всего: {{ filtered.length }}</p>
+  </div>
+  <a nz-button nzType="primary" routerLink="/users/new">Добавить</a>
+</div>
+
+<div class="panel panel-table">
+  <nz-spin [nzSpinning]="loading">
+    <div class="toolbar">
+      <input
+        nz-input
+        placeholder="Поиск по имени или email"
+        [(ngModel)]="search"
+        (ngModelChange)="onSearch()"
+      />
+    </div>
+
+    @if (!loading && filtered.length === 0) {
+      <div class="empty">
+        <nz-empty nzNotFoundImage="simple" [nzNotFoundContent]="search ? 'Ничего не найдено' : 'Список пуст'" />
+      </div>
+    } @else {
+      <div class="table-wrap">
+        <nz-table
+          #table
+          [nzData]="pageItems"
+          [nzFrontPagination]="false"
+          [nzShowPagination]="false"
+          nzSize="middle"
+        >
+          <thead>
+            <tr>
+              <th>Имя</th>
+              <th>Email</th>
+              <th>Телефон</th>
+              <th nzWidth="200px"></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (user of table.data; track user.id) {
+              <tr>
+                <td>
+                  <div class="name-cell">
+                    <span class="initials">{{ initials(user.name) }}</span>
+                    <div>
+                      <a class="name" [routerLink]="['/users', user.id]">{{ user.name }}</a>
+                      <span class="username">{{ user.username }}</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="cell-muted">{{ user.email }}</td>
+                <td class="cell-muted">{{ user.phone }}</td>
+                <td class="row-actions">
+                  <div class="row-actions__inner">
+                    <a
+                      nz-button
+                      nzType="default"
+                      nzSize="small"
+                      class="btn-muted btn-action"
+                      [routerLink]="['/users', user.id, 'edit']"
+                    >
+                      Изменить
+                    </a>
+                    <button
+                      type="button"
+                      nz-button
+                      nzType="default"
+                      nzSize="small"
+                      class="btn-danger-soft btn-action"
+                      nz-popconfirm
+                      nzPopconfirmTitle="Удалить пользователя?"
+                      (nzOnConfirm)="remove(user.id)"
+                    >
+                      Удалить
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </nz-table>
+      </div>
+    }
+  </nz-spin>
+</div>
+
+@if (!loading && filtered.length > pageSize) {
+  <div class="pager-panel">
+    <nz-pagination
+      [nzPageIndex]="pageIndex"
+      [nzPageSize]="pageSize"
+      [nzTotal]="filtered.length"
+      (nzPageIndexChange)="onPageChange($event)"
+    />
+  </div>
+}

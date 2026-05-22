@@ -1,0 +1,29 @@
+{
+  "name": "users-app",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build",
+    "deploy": "ng build --configuration production && cp dist/users-app/browser/index.html dist/users-app/browser/404.html && npx angular-cli-ghpages --dir=dist/users-app/browser"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/compiler": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0",
+    "@angular/platform-browser": "^20.3.0",
+    "@angular/router": "^20.3.0",
+    "ng-zorro-antd": "^20.4.4",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.3.26",
+    "@angular/cli": "^20.3.26",
+    "@angular/compiler-cli": "^20.3.0",
+    "angular-cli-ghpages": "^3.0.3",
+    "typescript": "~5.9.2"
+  }
+}

@@ -1,0 +1,50 @@
+<nz-spin [nzSpinning]="loading">
+  @if (user) {
+    <a class="link-back" routerLink="/users">
+      <span class="back-icon" aria-hidden="true"></span>
+      К списку
+    </a>
+
+    <div class="panel profile">
+      <div class="profile__head">
+        <span class="initials initials--lg">{{ initials(user.name) }}</span>
+        <div class="profile__info">
+          <h1 class="page-title">{{ user.name }}</h1>
+          <p class="page-desc">{{ user.username }}</p>
+        </div>
+        <div class="profile__actions">
+          <a nz-button nzType="default" class="btn-muted" [routerLink]="['/users', user.id, 'edit']">
+            Изменить
+          </a>
+          <button
+            nz-button
+            nzType="default"
+            class="btn-danger-soft"
+            nz-popconfirm
+            nzPopconfirmTitle="Удалить пользователя?"
+            (nzOnConfirm)="remove()"
+          >
+            Удалить
+          </button>
+        </div>
+      </div>
+
+      <dl class="fields">
+        <div class="field">
+          <dt>Email</dt>
+          <dd><a [href]="'mailto:' + user.email">{{ user.email }}</a></dd>
+        </div>
+        <div class="field">
+          <dt>Телефон</dt>
+          <dd>{{ user.phone }}</dd>
+        </div>
+        <div class="field">
+          <dt>Сайт</dt>
+          <dd>
+            <a [href]="websiteUrl(user.website)" target="_blank" rel="noopener">{{ user.website }}</a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  }
+</nz-spin>

@@ -1,0 +1,56 @@
+<a class="link-back" routerLink="/users">
+  <span class="back-icon" aria-hidden="true"></span>
+  К списку
+</a>
+
+<div class="page-header">
+  <h1 class="page-title">{{ title }}</h1>
+</div>
+
+<div class="panel form-panel">
+  <nz-spin [nzSpinning]="loading">
+    <form nz-form [formGroup]="form" (ngSubmit)="submit()" nzLayout="vertical" class="form">
+      <div class="form-grid">
+        <nz-form-item>
+          <nz-form-label nzRequired>Имя</nz-form-label>
+          <nz-form-control nzErrorTip="Обязательное поле" [nzValidateStatus]="form.controls.name">
+            <input nz-input formControlName="name" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label nzRequired>Логин</nz-form-label>
+          <nz-form-control nzErrorTip="Обязательное поле" [nzValidateStatus]="form.controls.username">
+            <input nz-input formControlName="username" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label nzRequired>Email</nz-form-label>
+          <nz-form-control nzErrorTip="Некорректный email" [nzValidateStatus]="form.controls.email">
+            <input nz-input type="email" formControlName="email" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label>Телефон</nz-form-label>
+          <nz-form-control>
+            <input nz-input formControlName="phone" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item class="full">
+          <nz-form-label>Сайт</nz-form-label>
+          <nz-form-control>
+            <input nz-input formControlName="website" />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+
+      <div class="form-actions">
+        <button nz-button nzType="primary" [nzLoading]="saving" [disabled]="!canSave">Сохранить</button>
+        <a nz-button nzType="default" class="btn-muted" routerLink="/users">Отмена</a>
+      </div>
+    </form>
+  </nz-spin>
+</div>
